@@ -7,9 +7,6 @@
           - name: Gather the rpm package facts
             package_facts:
                     manager: auto
-          - name: Print the rpm package facts
-            debug:
-                    var: ansible_facts.packages
           - name: print hostname if matched
             debug:
                     msg: "{{ ansible_hostname }} has {{ item }} installed"
@@ -33,4 +30,3 @@
                     - java-1.8.0-oracle-jdbc
                     - java-1.8.0-oracle-plugin
                     - java-1.8.0-oracle-src
-                    - yum
