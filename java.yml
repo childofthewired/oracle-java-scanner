@@ -30,3 +30,11 @@
                     - java-1.8.0-oracle-jdbc
                     - java-1.8.0-oracle-plugin
                     - java-1.8.0-oracle-src
+          - name: print machines that match packages java
+            debug: 
+               msg: " {{ packages | select('match', '^java-1.[6-8].0-(sun|oracle)+') | list }} "
+          - name: print machines that match packages java
+            debug:
+               msg: " {{ packages | select('match', '^(jre|jdk)')| list }} "
+
+                    
