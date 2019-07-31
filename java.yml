@@ -7,29 +7,6 @@
           - name: Gather the rpm package facts
             package_facts:
                     manager: auto
-          - name: print hostname if matched
-            debug:
-                    msg: "{{ ansible_hostname }} has {{ item }} installed"
-            when: packages['{{ item }}'] is defined
-            with_items:
-                    - java-1.6.0-sun
-                    - java-1.6.0-sun-demo
-                    - java-1.6.0-sun-devel
-                    - java-1.6.0-sun-jdbc
-                    - java-1.6.0-sun-plugin
-                    - java-1.6.0-sun-src
-                    - java-1.7.0-oracle
-                    - java-1.7.0-oracle-devel
-                    - java-1.7.0-oracle-javafx
-                    - java-1.7.0-oracle-jdbc
-                    - java-1.7.0-oracle-plugin
-                    - java-1.7.0-oracle-src
-                    - java-1.8.0-oracle
-                    - java-1.8.0-oracle-devel
-                    - java-1.8.0-oracle-javafx
-                    - java-1.8.0-oracle-jdbc
-                    - java-1.8.0-oracle-plugin
-                    - java-1.8.0-oracle-src
           - name: print machines that match packages java
             debug: 
                msg: " {{ packages | select('match', '^java-1.[6-8].0-(sun|oracle)+') | list }} "
